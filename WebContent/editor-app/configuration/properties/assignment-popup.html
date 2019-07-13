@@ -1,0 +1,45 @@
+
+<div class="modal" ng-controller="KisBpmAssignmentPopupCtrl" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+                <h2 translate>PROPERTY.ASSIGNMENT.TITLE</h2>
+            </div>
+            <div class="modal-body" align="center">
+	            <table>
+	            	<tr height="40px">
+	            		<td width="80px"><label for="assigneeField">{{'PROPERTY.ASSIGNMENT.ASSIGNEE' | translate}}:</label></td>
+	            		<td	width="300px">
+	            			<input type="text" id="assigneeField"  ng-model="assignment.assignee"  width="280px"
+	            				placeholder="{{'PROPERTY.ASSIGNMENT.ASSIGNEE_PLACEHOLDER' | translate}}" />
+	            		</td>
+	            		<td width="80px"><button type="button" ng-click="openUserSelect()" style="height:30px" translate>ACTION.SELECT</button></td>
+	            	</tr>
+	            	<tr height="40px">
+	            		<td><label for="userField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_USERS' | translate}}:</label></td>
+	            		<td>
+	            			<label id="userField"  >
+	                    		{{assignment.candidateUsers.value}}
+	                    	</label>
+	            		</td>
+	            		<td><button type="button" ng-click="openUserSelectMutl()" style="height:30px"  translate>ACTION.SELECT</button></td>
+	            	</tr>
+	            	<tr height="40px">
+	            		<td><label for="groupField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_GROUPS' | translate}}:</label></td>
+	            		<td>
+	            			<label id="groupField" ng-repeat="candidateGroup in assignment.candidateGroups" >
+	                    		{{assignment.candidateGroups.value}}
+	                    	</label>
+	            		</td>
+	            		<td><button type="button" ng-click="openRoleSelect()" style="height:30px" translate>ACTION.SELECT</button></td>
+	            	</tr>
+	            </table>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+                <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>
